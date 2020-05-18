@@ -36913,6 +36913,7 @@ __webpack_require__.d(__webpack_exports__, "FabricRectangle", function() { retur
 __webpack_require__.d(__webpack_exports__, "FabricShadow", function() { return /* reexport */ FabricShadow; });
 __webpack_require__.d(__webpack_exports__, "FabricSVGFromURL", function() { return /* reexport */ FabricSVGFromURL; });
 __webpack_require__.d(__webpack_exports__, "FabricText", function() { return /* reexport */ FabricText; });
+__webpack_require__.d(__webpack_exports__, "FabricTextBox", function() { return /* reexport */ FabricTextBox; });
 __webpack_require__.d(__webpack_exports__, "FabricTriangle", function() { return /* reexport */ FabricTriangle; });
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
@@ -40145,6 +40146,102 @@ var FabricText_component = normalizeComponent(
 )
 
 /* harmony default export */ var FabricText = (FabricText_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTextBox.vue?vue&type=script&lang=js&
+
+
+
+/* harmony default export */ var FabricTextBoxvue_type_script_lang_js_ = ({
+  name: "fabric-text-box",
+  mixins: [fabricObject],
+  props: {
+    top: {
+      type: Number,
+      default: 40
+    },
+    left: {
+      type: Number,
+      default: 0
+    },
+    fontFamily: {
+      type: String,
+      default: "Times New Roman"
+    },
+    fontSize: {
+      type: Number,
+      default: 40
+    },
+    fontStyle: {
+      type: String,
+      default: "normal"
+    },
+    fontWeight: {
+      type: [Number, String],
+      default: "normal"
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    textAlign: {
+      type: String,
+      default: "left"
+    },
+    textBackgroundColor: String
+  },
+  data: function data() {
+    return {
+      textObj: null,
+      type: "text"
+    };
+  },
+  render: function render(h) {
+    return this.$slots.default ? h("div", this.$slots.default) : undefined;
+  },
+  watch: {
+    parentItem: {
+      handler: function handler(newValue) {
+        if (newValue) {
+          //Parent is created
+          this.textObj = new this.fabric.Textbox(this.text, _objectSpread2({}, this.definedProps));
+
+          if (this.parentType == "group") {
+            this.parentItem.addWithUpdate(this.textObj);
+          } else {
+            this.canvas.add(this.textObj);
+          }
+
+          this.createEvents();
+          this.createWatchers();
+        }
+      },
+      immediate: true
+    }
+  },
+  methods: {},
+  beforeDestroy: function beforeDestroy() {}
+});
+// CONCATENATED MODULE: ./src/components/FabricTextBox.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_FabricTextBoxvue_type_script_lang_js_ = (FabricTextBoxvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/FabricTextBox.vue
+var FabricTextBox_render, FabricTextBox_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var FabricTextBox_component = normalizeComponent(
+  components_FabricTextBoxvue_type_script_lang_js_,
+  FabricTextBox_render,
+  FabricTextBox_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var FabricTextBox = (FabricTextBox_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTriangle.vue?vue&type=script&lang=js&
 
 
@@ -40250,6 +40347,7 @@ var FabricTriangle_component = normalizeComponent(
 
 
 
+
 var VueFabricWrapper = {
   FabricAnimation: FabricAnimation,
   FabricBackgroundImage: FabricBackgroundImage,
@@ -40270,6 +40368,7 @@ var VueFabricWrapper = {
   FabricShadow: FabricShadow,
   FabricSVGFromURL: FabricSVGFromURL,
   FabricText: FabricText,
+  FabricTextBox: FabricTextBox,
   FabricTriangle: FabricTriangle
 };
 Object.keys(VueFabricWrapper).forEach(function (name) {

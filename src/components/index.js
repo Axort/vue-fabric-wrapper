@@ -19,6 +19,7 @@ import FabricRectangle from "./FabricRectangle.vue";
 import FabricShadow from "./FabricShadow.vue";
 import FabricSVGFromURL from "./FabricSVGFromURL";
 import FabricText from "./FabricText.vue";
+import FabricTextBox from "./FabricTextBox.vue";
 import FabricTriangle from "./FabricTriangle.vue";
 
 const VueFabricWrapper = {
@@ -41,6 +42,7 @@ const VueFabricWrapper = {
   FabricShadow,
   FabricSVGFromURL,
   FabricText,
+  FabricTextBox,
   FabricTriangle
 };
 
@@ -69,5 +71,6 @@ export {
   FabricShadow,
   FabricSVGFromURL,
   FabricText,
+  FabricTextBox,
   FabricTriangle
 };
