@@ -102,7 +102,7 @@ export default {
     cacheProperties: Array,
     centeredRotation: { type: Boolean, default: true },
     centeredScaling: { type: Boolean, default: false },
-    //clipPath :fabric.Object,
+    clipPath: Object,
     cornerColor: String,
     cornerDashArray: Array,
     cornerSize: Number,

@@ -7,7 +7,7 @@ export default {
     backgroundColor: String,
     //backgroundImage :fabric.Image,
     backgroundVpt: { type: Boolean, default: true },
-    //clipPath :fabric.Object,
+    clipPath: Object,
     controlsAboveOverlay: Boolean,
     enableRetinaScaling: { type: Boolean, default: true },
     FX_DURATION: { type: Number, default: 500 },
