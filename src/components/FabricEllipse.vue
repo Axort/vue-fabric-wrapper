@@ -41,7 +41,11 @@ export default {
           //Parent is created
           this.ellipse = new this.fabric.Ellipse({ ...this.definedProps });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.ellipse);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.ellipse);
+            } else {
+              this.parentItem.addWithUpdate(this.ellipse);
+            }
           } else {
             this.canvas.add(this.ellipse);
           }

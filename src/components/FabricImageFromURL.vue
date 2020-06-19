@@ -51,7 +51,11 @@ export default {
           this.image = img;
           this.$emit("image-loaded", img);
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.image);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.image);
+            } else {
+              this.parentItem.addWithUpdate(this.image);
+            }
           } else {
             this.canvas.add(this.image);
           }

@@ -38125,7 +38125,11 @@ var FabricCanvas_component = normalizeComponent(
 
 /* harmony default export */ var FabricCanvas = (FabricCanvas_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricCircle.vue?vue&type=script&lang=js&
+function FabricCirclevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricCirclevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricCirclevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricCirclevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricCirclevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricCirclevue_type_script_lang_js_ = ({
@@ -38163,10 +38167,14 @@ var FabricCanvas_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.circle = new this.fabric.Circle(_objectSpread2({}, this.definedProps));
+          this.circle = new this.fabric.Circle(_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.circle);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.circle);
+            } else {
+              this.parentItem.addWithUpdate(this.circle);
+            }
           } else {
             this.canvas.add(this.circle);
           }
@@ -38256,7 +38264,11 @@ function _asyncToGenerator(fn) {
   };
 }
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricRectangle.vue?vue&type=script&lang=js&
+function FabricRectanglevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricRectanglevue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricRectanglevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricRectanglevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricRectanglevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricRectanglevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricRectanglevue_type_script_lang_js_ = ({
@@ -38298,10 +38310,14 @@ function _asyncToGenerator(fn) {
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.rect = new this.fabric.Rect(_objectSpread2({}, this.definedProps));
+          this.rect = new this.fabric.Rect(FabricRectanglevue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.rect);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.rect);
+            } else {
+              this.parentItem.addWithUpdate(this.rect);
+            }
           } else {
             this.canvas.add(this.rect);
           }
@@ -38339,7 +38355,11 @@ var FabricRectangle_component = normalizeComponent(
 
 /* harmony default export */ var FabricRectangle = (FabricRectangle_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricLine.vue?vue&type=script&lang=js&
+function FabricLinevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricLinevue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricLinevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricLinevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricLinevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricLinevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricLinevue_type_script_lang_js_ = ({
@@ -38385,10 +38405,14 @@ var FabricRectangle_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.line = new this.fabric.Line([this.x1, this.y1, this.x2, this.y2], _objectSpread2({}, this.definedProps));
+          this.line = new this.fabric.Line([this.x1, this.y1, this.x2, this.y2], FabricLinevue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.line);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.line);
+            } else {
+              this.parentItem.addWithUpdate(this.line);
+            }
           } else {
             this.canvas.add(this.line);
           }
@@ -38706,7 +38730,11 @@ var FabricDotGrid_component = normalizeComponent(
 
 /* harmony default export */ var FabricDotGrid = (FabricDotGrid_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricEllipse.vue?vue&type=script&lang=js&
+function FabricEllipsevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricEllipsevue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricEllipsevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricEllipsevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricEllipsevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricEllipsevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricEllipsevue_type_script_lang_js_ = ({
@@ -38748,10 +38776,14 @@ var FabricDotGrid_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.ellipse = new this.fabric.Ellipse(_objectSpread2({}, this.definedProps));
+          this.ellipse = new this.fabric.Ellipse(FabricEllipsevue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.ellipse);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.ellipse);
+            } else {
+              this.parentItem.addWithUpdate(this.ellipse);
+            }
           } else {
             this.canvas.add(this.ellipse);
           }
@@ -39289,7 +39321,7 @@ var FabricLineGrid_component = normalizeComponent(
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricGroup.vue?vue&type=script&lang=js&
 function FabricGroupvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricGroupvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricGroupvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricGroupvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function FabricGroupvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricGroupvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricGroupvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricGroupvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function FabricGroupvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -39331,16 +39363,11 @@ function FabricGroupvue_type_script_lang_js_defineProperty(obj, key, value) { if
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.groupDef = new this.fabric.Group([], _objectSpread({}, this.definedProps));
+          this.groupDef = new this.fabric.Group([], FabricGroupvue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            // eslint-disable-next-line no-console
-            console.error("AddWithoutUpdate1", this, this.parentItem);
-
             if (this.parentItem.addWithoutUpdate) {
-              this.parentItem.add(this.groupDef); // eslint-disable-next-line no-console
-
-              console.error("AddWithoutUpdate");
+              this.parentItem.add(this.groupDef);
             } else {
               this.parentItem.addWithUpdate(this.groupDef);
             }
@@ -39380,7 +39407,11 @@ var FabricGroup_component = normalizeComponent(
 
 /* harmony default export */ var FabricGroup = (FabricGroup_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricImageFromURL.vue?vue&type=script&lang=js&
+function FabricImageFromURLvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricImageFromURLvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricImageFromURLvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricImageFromURLvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricImageFromURLvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricImageFromURLvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricImageFromURLvue_type_script_lang_js_ = ({
@@ -39440,7 +39471,11 @@ var FabricGroup_component = normalizeComponent(
         _this.$emit("image-loaded", img);
 
         if (_this.parentType == "group") {
-          _this.parentItem.addWithUpdate(_this.image);
+          if (_this.parentItem.addWithoutUpdate) {
+            _this.parentItem.add(_this.image);
+          } else {
+            _this.parentItem.addWithUpdate(_this.image);
+          }
         } else {
           _this.canvas.add(_this.image);
         }
@@ -39448,7 +39483,7 @@ var FabricGroup_component = normalizeComponent(
         _this.createEvents();
 
         _this.createWatchers();
-      }, _objectSpread2({}, this.definedProps));
+      }, FabricImageFromURLvue_type_script_lang_js_objectSpread({}, this.definedProps));
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
@@ -39605,6 +39640,11 @@ var FabricOverlayImage_component = normalizeComponent(
 
 /* harmony default export */ var FabricOverlayImage = (FabricOverlayImage_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricPath.vue?vue&type=script&lang=js&
+function FabricPathvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function FabricPathvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricPathvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricPathvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricPathvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricPathvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricPathvue_type_script_lang_js_ = ({
@@ -39639,10 +39679,14 @@ var FabricOverlayImage_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.pathObj = new this.fabric.Path(this.path, _objectSpread2({}, this.definedProps));
+          this.pathObj = new this.fabric.Path(this.path, FabricPathvue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.pathObj);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.pathObj);
+            } else {
+              this.parentItem.addWithUpdate(this.pathObj);
+            }
           } else {
             this.canvas.add(this.pathObj);
           }
@@ -39658,15 +39702,20 @@ var FabricOverlayImage_component = normalizeComponent(
         if (this.parentType === "canvas") {
           this.destroyEvents();
           this.canvas.remove(this.item);
-          this.pathObj = new this.fabric.Path(newValue, _objectSpread2({}, this.definedProps));
+          this.pathObj = new this.fabric.Path(newValue, FabricPathvue_type_script_lang_js_objectSpread({}, this.definedProps));
           this.canvas.add(this.pathObj);
         }
 
         if (this.parentType === "group") {
           this.destroyEvents();
           this.parentItem.remove(this.item);
-          this.pathObj = new this.fabric.Path(newValue, _objectSpread2({}, this.definedProps));
-          this.parentItem.addWithUpdate(this.pathObj);
+          this.pathObj = new this.fabric.Path(newValue, FabricPathvue_type_script_lang_js_objectSpread({}, this.definedProps));
+
+          if (this.parentItem.addWithoutUpdate) {
+            this.parentItem.add(this.pathObj);
+          } else {
+            this.parentItem.addWithUpdate(this.pathObj);
+          }
         }
       }
     }
@@ -39698,6 +39747,11 @@ var FabricPath_component = normalizeComponent(
 
 /* harmony default export */ var FabricPath = (FabricPath_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricPolygon.vue?vue&type=script&lang=js&
+function FabricPolygonvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function FabricPolygonvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricPolygonvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricPolygonvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricPolygonvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricPolygonvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricPolygonvue_type_script_lang_js_ = ({
@@ -39751,10 +39805,14 @@ var FabricPath_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.polygon = new this.fabric.Polygon(this.points, _objectSpread2({}, this.definedProps));
+          this.polygon = new this.fabric.Polygon(this.points, FabricPolygonvue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.polygon);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.polygon);
+            } else {
+              this.parentItem.addWithUpdate(this.polygon);
+            }
           } else {
             this.canvas.add(this.polygon);
           }
@@ -40069,7 +40127,11 @@ var FabricSVGFromURL_component = normalizeComponent(
 
 /* harmony default export */ var FabricSVGFromURL = (FabricSVGFromURL_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricText.vue?vue&type=script&lang=js&
+function FabricTextvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricTextvue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricTextvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricTextvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricTextvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricTextvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricTextvue_type_script_lang_js_ = ({
@@ -40124,10 +40186,14 @@ var FabricSVGFromURL_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.textObj = new this.fabric.Text(this.text, _objectSpread2({}, this.definedProps));
+          this.textObj = new this.fabric.Text(this.text, FabricTextvue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.textObj);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.textObj);
+            } else {
+              this.parentItem.addWithUpdate(this.textObj);
+            }
           } else {
             this.canvas.add(this.textObj);
           }
@@ -40227,13 +40293,8 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
           this.textObj = new this.fabric.Textbox(this.text, FabricTextBoxvue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            // eslint-disable-next-line no-console
-            console.error("AddWithoutUpdate1", this, this.parentItem);
-
             if (this.parentItem.addWithoutUpdate) {
-              this.parentItem.add(this.textObj); // eslint-disable-next-line no-console
-
-              console.error("AddWithoutUpdate");
+              this.parentItem.add(this.textObj);
             } else {
               this.parentItem.addWithUpdate(this.textObj);
             }
@@ -40274,7 +40335,11 @@ var FabricTextBox_component = normalizeComponent(
 
 /* harmony default export */ var FabricTextBox = (FabricTextBox_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTriangle.vue?vue&type=script&lang=js&
+function FabricTrianglevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricTrianglevue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricTrianglevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricTrianglevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricTrianglevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricTrianglevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricTrianglevue_type_script_lang_js_ = ({
@@ -40316,10 +40381,14 @@ var FabricTextBox_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.triangle = new this.fabric.Triangle(_objectSpread2({}, this.definedProps));
+          this.triangle = new this.fabric.Triangle(FabricTrianglevue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.triangle);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.triangle);
+            } else {
+              this.parentItem.addWithUpdate(this.triangle);
+            }
           } else {
             this.canvas.add(this.triangle);
           }

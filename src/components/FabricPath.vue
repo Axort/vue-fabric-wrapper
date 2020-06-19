@@ -30,7 +30,11 @@ export default {
             ...this.definedProps
           });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.pathObj);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.pathObj);
+            } else {
+              this.parentItem.addWithUpdate(this.pathObj);
+            }
           } else {
             this.canvas.add(this.pathObj);
           }
@@ -56,7 +60,11 @@ export default {
           this.pathObj = new this.fabric.Path(newValue, {
             ...this.definedProps
           });
-          this.parentItem.addWithUpdate(this.pathObj);
+          if (this.parentItem.addWithoutUpdate) {
+            this.parentItem.add(this.pathObj);
+          } else {
+            this.parentItem.addWithUpdate(this.pathObj);
+          }
         }
       }
     }

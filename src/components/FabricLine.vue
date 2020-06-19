@@ -44,7 +44,11 @@ export default {
             }
           );
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.line);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.line);
+            } else {
+              this.parentItem.addWithUpdate(this.line);
+            }
           } else {
             this.canvas.add(this.line);
           }

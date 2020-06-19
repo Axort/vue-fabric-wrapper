@@ -41,7 +41,11 @@ export default {
           //Parent is created
           this.triangle = new this.fabric.Triangle({ ...this.definedProps });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.triangle);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.triangle);
+            } else {
+              this.parentItem.addWithUpdate(this.triangle);
+            }
           } else {
             this.canvas.add(this.triangle);
           }

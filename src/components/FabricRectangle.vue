@@ -41,7 +41,11 @@ export default {
           //Parent is created
           this.rect = new this.fabric.Rect({ ...this.definedProps });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.rect);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.rect);
+            } else {
+              this.parentItem.addWithUpdate(this.rect);
+            }
           } else {
             this.canvas.add(this.rect);
           }

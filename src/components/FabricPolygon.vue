@@ -38,7 +38,11 @@ export default {
             ...this.definedProps
           });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.polygon);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.polygon);
+            } else {
+              this.parentItem.addWithUpdate(this.polygon);
+            }
           } else {
             this.canvas.add(this.polygon);
           }

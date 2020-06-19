@@ -37,7 +37,11 @@ export default {
             ...this.definedProps
           });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.polyline);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.polyline);
+            } else {
+              this.parentItem.addWithUpdate(this.polyline);
+            }
           } else {
             this.canvas.add(this.polyline);
           }

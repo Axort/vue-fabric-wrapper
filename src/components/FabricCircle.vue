@@ -37,7 +37,11 @@ export default {
           //Parent is created
           this.circle = new this.fabric.Circle({ ...this.definedProps });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.circle);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.circle);
+            } else {
+              this.parentItem.addWithUpdate(this.circle);
+            }
           } else {
             this.canvas.add(this.circle);
           }

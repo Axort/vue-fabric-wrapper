@@ -56,7 +56,11 @@ export default {
             ...this.definedProps
           });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.textObj);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.textObj);
+            } else {
+              this.parentItem.addWithUpdate(this.textObj);
+            }
           } else {
             this.canvas.add(this.textObj);
           }
