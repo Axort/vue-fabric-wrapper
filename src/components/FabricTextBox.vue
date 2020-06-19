@@ -56,7 +56,15 @@ export default {
             ...this.definedProps
           });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.textObj);
+            // eslint-disable-next-line no-console
+            console.error("AddWithoutUpdate1", this, this.parentItem);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.textObj);
+              // eslint-disable-next-line no-console
+              console.error("AddWithoutUpdate");
+            } else {
+              this.parentItem.addWithUpdate(this.textObj);
+            }
           } else {
             this.canvas.add(this.textObj);
           }

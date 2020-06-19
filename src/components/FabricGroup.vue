@@ -13,6 +13,10 @@ export default {
     subTargetCheck: {
       type: Boolean,
       default: false
+    },
+    addWithoutUpdate: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -31,7 +35,15 @@ export default {
           //Parent is created
           this.groupDef = new this.fabric.Group([], { ...this.definedProps });
           if (this.parentType == "group") {
-            this.parentItem.addWithUpdate(this.groupDef);
+            // eslint-disable-next-line no-console
+            console.error("AddWithoutUpdate1", this, this.parentItem);
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.groupDef);
+              // eslint-disable-next-line no-console
+              console.error("AddWithoutUpdate");
+            } else {
+              this.parentItem.addWithUpdate(this.groupDef);
+            }
           } else {
             this.canvas.add(this.groupDef);
           }
