@@ -39706,10 +39706,7 @@ var FabricGroup_component = normalizeComponent(
     }
   },
   methods: {
-    createImage: function createImage() {
-      var _this = this;
-
-      // this.fabric.util.loadImage(
+    createImage: function createImage() {// this.fabric.util.loadImage(
       //   this.url,
       //   (img) => {
       //     this.image = img;
@@ -39748,34 +39745,27 @@ var FabricGroup_component = normalizeComponent(
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
-      var img = new Image();
-      this.toDataUrl(this.url, function (dataUri) {
-        // console.log("Data URL obtained: ", dataUri);
-        img.src = dataUri;
-        var inst = _this;
-
-        img.onload = function () {
-          // console.log("onLoad");
-          inst.image = img;
-          inst.$emit("image-loaded", img);
-
-          if (inst.parentType == "group") {
-            if (inst.parentItem.addWithoutUpdate) {
-              inst.parentItem.add(inst.image);
-            } else {
-              inst.parentItem.addWithUpdate(inst.image);
-            }
-          } else {
-            inst.canvas.add(inst.image);
-          }
-
-          inst.createEvents();
-          inst.createWatchers();
-        }; // console.log("Put cross origin to image");
-
-
-        img.crossOrigin = "anonymous";
-      });
+      // let img = new Image();
+      // this.toDataUrl(this.url, (dataUri) => {
+      //   img.src = dataUri;
+      //   let inst = this;
+      //   img.onload = function () {
+      //     inst.image = img;
+      //     inst.$emit("image-loaded", img);
+      //     if (inst.parentType == "group") {
+      //       if (inst.parentItem.addWithoutUpdate) {
+      //         inst.parentItem.add(inst.image);
+      //       } else {
+      //         inst.parentItem.addWithUpdate(inst.image);
+      //       }
+      //     } else {
+      //       inst.canvas.add(inst.image);
+      //     }
+      //     inst.createEvents();
+      //     inst.createWatchers();
+      //   };
+      //   img.crossOrigin = "anonymous";
+      // });
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
