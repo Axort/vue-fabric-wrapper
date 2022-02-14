@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     createImage() {
-      this.fabric.Image.fromURL(
+      this.fabric.util.loadImage(
         this.url,
         (img) => {
           this.image = img;
@@ -62,8 +62,28 @@ export default {
           this.createEvents();
           this.createWatchers();
         },
-        { crossOrigin: "anonymous", ...this.definedProps }
+        null,
+        { crossOrigin: "anonymous" }
       );
+      // this.fabric.Image.fromURL(
+      //   this.url,
+      //   (img) => {
+      // this.image = img;
+      // this.$emit("image-loaded", img);
+      // if (this.parentType == "group") {
+      //   if (this.parentItem.addWithoutUpdate) {
+      //     this.parentItem.add(this.image);
+      //   } else {
+      //     this.parentItem.addWithUpdate(this.image);
+      //   }
+      // } else {
+      //   this.canvas.add(this.image);
+      // }
+      // this.createEvents();
+      // this.createWatchers();
+      //   },
+      //   { crossOrigin: "anonymous", ...this.definedProps }
+      // );
     },
     destroyImage() {
       this.destroyEvents();
