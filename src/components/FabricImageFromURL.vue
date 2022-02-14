@@ -89,8 +89,8 @@ export default {
         img.src = dataUri;
         let inst = this;
         img.onload = function () {
-          inst.image = img;
-          inst.$emit("image-loaded", img);
+          inst.image = new Fabric.Image(img);
+          inst.$emit("image-loaded", inst.image);
           if (inst.parentType == "group") {
             if (inst.parentItem.addWithoutUpdate) {
               inst.parentItem.add(inst.image);

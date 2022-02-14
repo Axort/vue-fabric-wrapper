@@ -39763,8 +39763,8 @@ var FabricGroup_component = normalizeComponent(
         var inst = _this;
 
         img.onload = function () {
-          inst.image = img;
-          inst.$emit("image-loaded", img);
+          inst.image = new Fabric.Image(img);
+          inst.$emit("image-loaded", inst.image);
 
           if (inst.parentType == "group") {
             if (inst.parentItem.addWithoutUpdate) {
