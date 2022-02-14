@@ -86,9 +86,11 @@ export default {
       // );
       let img = new Image();
       this.toDataUrl(this.url, (dataUri) => {
+        // console.log("Data URL obtained: ", dataUri);
         img.src = dataUri;
         let inst = this;
         img.onload = function () {
+          // console.log("onLoad");
           inst.image = img;
           inst.$emit("image-loaded", img);
           if (inst.parentType == "group") {
@@ -103,6 +105,8 @@ export default {
           inst.createEvents();
           inst.createWatchers();
         };
+        // console.log("Put cross origin to image");
+        img.crossOrigin = "anonymous";
       });
     },
     destroyImage() {

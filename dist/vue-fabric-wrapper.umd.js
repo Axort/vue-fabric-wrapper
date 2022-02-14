@@ -39759,10 +39759,12 @@ var FabricGroup_component = normalizeComponent(
       // );
       var img = new Image();
       this.toDataUrl(this.url, function (dataUri) {
+        // console.log("Data URL obtained: ", dataUri);
         img.src = dataUri;
         var inst = _this;
 
         img.onload = function () {
+          // console.log("onLoad");
           inst.image = img;
           inst.$emit("image-loaded", img);
 
@@ -39778,7 +39780,10 @@ var FabricGroup_component = normalizeComponent(
 
           inst.createEvents();
           inst.createWatchers();
-        };
+        }; // console.log("Put cross origin to image");
+
+
+        img.crossOrigin = "anonymous";
       });
     },
     destroyImage: function destroyImage() {
