@@ -39709,27 +39709,27 @@ var FabricGroup_component = normalizeComponent(
     createImage: function createImage() {
       var _this = this;
 
-      this.fabric.util.loadImage(this.url, function (img) {
-        _this.image = img;
-
-        _this.$emit("image-loaded", img);
-
-        if (_this.parentType == "group") {
-          if (_this.parentItem.addWithoutUpdate) {
-            _this.parentItem.add(_this.image);
-          } else {
-            _this.parentItem.addWithUpdate(_this.image);
-          }
-        } else {
-          _this.canvas.add(_this.image);
-        }
-
-        _this.createEvents();
-
-        _this.createWatchers();
-      }, null, {
-        crossOrigin: "anonymous"
-      }); // this.fabric.Image.fromURL(
+      // this.fabric.util.loadImage(
+      //   this.url,
+      //   (img) => {
+      //     this.image = img;
+      //     this.$emit("image-loaded", img);
+      //     if (this.parentType == "group") {
+      //       if (this.parentItem.addWithoutUpdate) {
+      //         this.parentItem.add(this.image);
+      //       } else {
+      //         this.parentItem.addWithUpdate(this.image);
+      //       }
+      //     } else {
+      //       this.canvas.add(this.image);
+      //     }
+      //     this.createEvents();
+      //     this.createWatchers();
+      //   },
+      //   null,
+      //   { crossOrigin: "anonymous" }
+      // );
+      // this.fabric.Image.fromURL(
       //   this.url,
       //   (img) => {
       // this.image = img;
@@ -39748,6 +39748,29 @@ var FabricGroup_component = normalizeComponent(
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
+      var img = new Image();
+      this.toDataUrl(this.url, function (dataUri) {
+        img.src = dataUri;
+        var inst = _this;
+
+        img.onload = function () {
+          inst.image = img;
+          inst.$emit("image-loaded", img);
+
+          if (inst.parentType == "group") {
+            if (inst.parentItem.addWithoutUpdate) {
+              inst.parentItem.add(inst.image);
+            } else {
+              inst.parentItem.addWithUpdate(inst.image);
+            }
+          } else {
+            inst.canvas.add(inst.image);
+          }
+
+          inst.createEvents();
+          inst.createWatchers();
+        };
+      });
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
@@ -39763,6 +39786,23 @@ var FabricGroup_component = normalizeComponent(
 
         this.image = null;
       }
+    },
+    toDataUrl: function toDataUrl(url, callback) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.onload = function () {
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+          callback(reader.result);
+        };
+
+        reader.readAsDataURL(xhr.response);
+      };
+
+      xhr.open("GET", url);
+      xhr.responseType = "blob";
+      xhr.send();
     }
   }
 });

@@ -45,26 +45,26 @@ export default {
   },
   methods: {
     createImage() {
-      this.fabric.util.loadImage(
-        this.url,
-        (img) => {
-          this.image = img;
-          this.$emit("image-loaded", img);
-          if (this.parentType == "group") {
-            if (this.parentItem.addWithoutUpdate) {
-              this.parentItem.add(this.image);
-            } else {
-              this.parentItem.addWithUpdate(this.image);
-            }
-          } else {
-            this.canvas.add(this.image);
-          }
-          this.createEvents();
-          this.createWatchers();
-        },
-        null,
-        { crossOrigin: "anonymous" }
-      );
+      // this.fabric.util.loadImage(
+      //   this.url,
+      //   (img) => {
+      //     this.image = img;
+      //     this.$emit("image-loaded", img);
+      //     if (this.parentType == "group") {
+      //       if (this.parentItem.addWithoutUpdate) {
+      //         this.parentItem.add(this.image);
+      //       } else {
+      //         this.parentItem.addWithUpdate(this.image);
+      //       }
+      //     } else {
+      //       this.canvas.add(this.image);
+      //     }
+      //     this.createEvents();
+      //     this.createWatchers();
+      //   },
+      //   null,
+      //   { crossOrigin: "anonymous" }
+      // );
       // this.fabric.Image.fromURL(
       //   this.url,
       //   (img) => {
@@ -84,6 +84,26 @@ export default {
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
+      let img = new Image();
+      this.toDataUrl(this.url, (dataUri) => {
+        img.src = dataUri;
+        let inst = this;
+        img.onload = function () {
+          inst.image = img;
+          inst.$emit("image-loaded", img);
+          if (inst.parentType == "group") {
+            if (inst.parentItem.addWithoutUpdate) {
+              inst.parentItem.add(inst.image);
+            } else {
+              inst.parentItem.addWithUpdate(inst.image);
+            }
+          } else {
+            inst.canvas.add(inst.image);
+          }
+          inst.createEvents();
+          inst.createWatchers();
+        };
+      });
     },
     destroyImage() {
       this.destroyEvents();
@@ -97,6 +117,20 @@ export default {
         }
         this.image = null;
       }
+    },
+    toDataUrl(url, callback) {
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        let reader = new FileReader();
+        reader.onloadend = () => {
+          callback(reader.result);
+        };
+        reader.readAsDataURL(xhr.response);
+      };
+
+      xhr.open("GET", url);
+      xhr.responseType = "blob";
+      xhr.send();
     },
   },
 };
