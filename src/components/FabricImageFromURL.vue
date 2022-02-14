@@ -45,26 +45,26 @@ export default {
   },
   methods: {
     createImage() {
-      this.fabric.util.loadImage(
-        this.url,
-        (img) => {
-          this.image = new this.fabric.Image(img);
-          this.$emit("image-loaded", this.image);
-          if (this.parentType == "group") {
-            if (this.parentItem.addWithoutUpdate) {
-              this.parentItem.add(this.image);
-            } else {
-              this.parentItem.addWithUpdate(this.image);
-            }
-          } else {
-            this.canvas.add(this.image);
-          }
-          this.createEvents();
-          this.createWatchers();
-        },
-        null,
-        { crossOrigin: "anonymous", ...this.definedProps }
-      );
+      // this.fabric.util.loadImage(
+      //   this.url,
+      //   (img) => {
+      //     this.image = new this.fabric.Image(img);
+      //     this.$emit("image-loaded", this.image);
+      //     if (this.parentType == "group") {
+      //       if (this.parentItem.addWithoutUpdate) {
+      //         this.parentItem.add(this.image);
+      //       } else {
+      //         this.parentItem.addWithUpdate(this.image);
+      //       }
+      //     } else {
+      //       this.canvas.add(this.image);
+      //     }
+      //     this.createEvents();
+      //     this.createWatchers();
+      //   },
+      //   null,
+      //   { ...this.definedProps }
+      // );
       // this.fabric.Image.fromURL(
       //   this.url,
       //   (img) => {
@@ -84,27 +84,27 @@ export default {
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
-      // let img = new Image();
-      // this.toDataUrl(this.url, (dataUri) => {
-      //   img.src = dataUri;
-      //   let inst = this;
-      //   img.onload = function () {
-      //     inst.image = new Fabric.Image(img);
-      //     inst.$emit("image-loaded", inst.image);
-      //     if (inst.parentType == "group") {
-      //       if (inst.parentItem.addWithoutUpdate) {
-      //         inst.parentItem.add(inst.image);
-      //       } else {
-      //         inst.parentItem.addWithUpdate(inst.image);
-      //       }
-      //     } else {
-      //       inst.canvas.add(inst.image);
-      //     }
-      //     inst.createEvents();
-      //     inst.createWatchers();
-      //   };
-      //   img.crossOrigin = "anonymous";
-      // });
+      let img = new Image();
+      this.toDataUrl(this.url, (dataUri) => {
+        img.src = dataUri;
+        let inst = this;
+        img.onload = function () {
+          inst.image = new inst.fabric.Image(img);
+          inst.$emit("image-loaded", inst.image);
+          if (inst.parentType == "group") {
+            if (inst.parentItem.addWithoutUpdate) {
+              inst.parentItem.add(inst.image);
+            } else {
+              inst.parentItem.addWithUpdate(inst.image);
+            }
+          } else {
+            inst.canvas.add(inst.image);
+          }
+          inst.createEvents();
+          inst.createWatchers();
+        };
+        img.crossOrigin = "anonymous";
+      });
     },
     destroyImage() {
       this.destroyEvents();

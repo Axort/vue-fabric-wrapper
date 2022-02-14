@@ -39666,12 +39666,6 @@ var FabricGroup_component = normalizeComponent(
 
 /* harmony default export */ var FabricGroup = (FabricGroup_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricImageFromURL.vue?vue&type=script&lang=js&
-function FabricImageFromURLvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? FabricImageFromURLvue_type_script_lang_js_ownKeys(Object(source), !0).forEach(function (key) { FabricImageFromURLvue_type_script_lang_js_defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : FabricImageFromURLvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function FabricImageFromURLvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 /* harmony default export */ var FabricImageFromURLvue_type_script_lang_js_ = ({
   name: "fabric-image-from-URL",
@@ -39724,27 +39718,27 @@ function FabricImageFromURLvue_type_script_lang_js_defineProperty(obj, key, valu
     createImage: function createImage() {
       var _this = this;
 
-      this.fabric.util.loadImage(this.url, function (img) {
-        _this.image = new _this.fabric.Image(img);
-
-        _this.$emit("image-loaded", _this.image);
-
-        if (_this.parentType == "group") {
-          if (_this.parentItem.addWithoutUpdate) {
-            _this.parentItem.add(_this.image);
-          } else {
-            _this.parentItem.addWithUpdate(_this.image);
-          }
-        } else {
-          _this.canvas.add(_this.image);
-        }
-
-        _this.createEvents();
-
-        _this.createWatchers();
-      }, null, _objectSpread({
-        crossOrigin: "anonymous"
-      }, this.definedProps)); // this.fabric.Image.fromURL(
+      // this.fabric.util.loadImage(
+      //   this.url,
+      //   (img) => {
+      //     this.image = new this.fabric.Image(img);
+      //     this.$emit("image-loaded", this.image);
+      //     if (this.parentType == "group") {
+      //       if (this.parentItem.addWithoutUpdate) {
+      //         this.parentItem.add(this.image);
+      //       } else {
+      //         this.parentItem.addWithUpdate(this.image);
+      //       }
+      //     } else {
+      //       this.canvas.add(this.image);
+      //     }
+      //     this.createEvents();
+      //     this.createWatchers();
+      //   },
+      //   null,
+      //   { ...this.definedProps }
+      // );
+      // this.fabric.Image.fromURL(
       //   this.url,
       //   (img) => {
       // this.image = img;
@@ -39763,27 +39757,31 @@ function FabricImageFromURLvue_type_script_lang_js_defineProperty(obj, key, valu
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
-      // let img = new Image();
-      // this.toDataUrl(this.url, (dataUri) => {
-      //   img.src = dataUri;
-      //   let inst = this;
-      //   img.onload = function () {
-      //     inst.image = new Fabric.Image(img);
-      //     inst.$emit("image-loaded", inst.image);
-      //     if (inst.parentType == "group") {
-      //       if (inst.parentItem.addWithoutUpdate) {
-      //         inst.parentItem.add(inst.image);
-      //       } else {
-      //         inst.parentItem.addWithUpdate(inst.image);
-      //       }
-      //     } else {
-      //       inst.canvas.add(inst.image);
-      //     }
-      //     inst.createEvents();
-      //     inst.createWatchers();
-      //   };
-      //   img.crossOrigin = "anonymous";
-      // });
+      var img = new Image();
+      this.toDataUrl(this.url, function (dataUri) {
+        img.src = dataUri;
+        var inst = _this;
+
+        img.onload = function () {
+          inst.image = new inst.fabric.Image(img);
+          inst.$emit("image-loaded", inst.image);
+
+          if (inst.parentType == "group") {
+            if (inst.parentItem.addWithoutUpdate) {
+              inst.parentItem.add(inst.image);
+            } else {
+              inst.parentItem.addWithUpdate(inst.image);
+            }
+          } else {
+            inst.canvas.add(inst.image);
+          }
+
+          inst.createEvents();
+          inst.createWatchers();
+        };
+
+        img.crossOrigin = "anonymous";
+      });
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
