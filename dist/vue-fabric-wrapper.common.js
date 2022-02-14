@@ -39706,7 +39706,10 @@ var FabricGroup_component = normalizeComponent(
     }
   },
   methods: {
-    createImage: function createImage() {// this.fabric.util.loadImage(
+    createImage: function createImage() {
+      var _this = this;
+
+      // this.fabric.util.loadImage(
       //   this.url,
       //   (img) => {
       //     this.image = img;
@@ -39745,27 +39748,31 @@ var FabricGroup_component = normalizeComponent(
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
-      // let img = new Image();
-      // this.toDataUrl(this.url, (dataUri) => {
-      //   img.src = dataUri;
-      //   let inst = this;
-      //   img.onload = function () {
-      //     inst.image = img;
-      //     inst.$emit("image-loaded", img);
-      //     if (inst.parentType == "group") {
-      //       if (inst.parentItem.addWithoutUpdate) {
-      //         inst.parentItem.add(inst.image);
-      //       } else {
-      //         inst.parentItem.addWithUpdate(inst.image);
-      //       }
-      //     } else {
-      //       inst.canvas.add(inst.image);
-      //     }
-      //     inst.createEvents();
-      //     inst.createWatchers();
-      //   };
-      //   img.crossOrigin = "anonymous";
-      // });
+      var img = new Image();
+      this.toDataUrl(this.url, function (dataUri) {
+        img.src = dataUri;
+        var inst = _this;
+
+        img.onload = function () {
+          inst.image = img;
+          inst.$emit("image-loaded", img);
+
+          if (inst.parentType == "group") {
+            if (inst.parentItem.addWithoutUpdate) {
+              inst.parentItem.add(inst.image);
+            } else {
+              inst.parentItem.addWithUpdate(inst.image);
+            }
+          } else {
+            inst.canvas.add(inst.image);
+          }
+
+          inst.createEvents();
+          inst.createWatchers();
+        };
+
+        img.crossOrigin = "anonymous";
+      });
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
