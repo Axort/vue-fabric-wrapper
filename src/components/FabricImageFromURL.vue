@@ -7,18 +7,18 @@ export default {
     url: { type: String, default: "../vue.png" },
     top: {
       type: Number,
-      default: 0
+      default: 0,
     },
     left: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data() {
     return {
       image: null,
       type: "image",
-      customWatch: ["url"]
+      customWatch: ["url"],
     };
   },
   render(h) {
@@ -32,7 +32,7 @@ export default {
           this.createImage();
         }
       },
-      immediate: true
+      immediate: true,
     },
     url(newValue) {
       if (this.parentItem) {
@@ -41,13 +41,13 @@ export default {
         }
         this.createImage();
       }
-    }
+    },
   },
   methods: {
     createImage() {
       this.fabric.Image.fromURL(
         this.url,
-        img => {
+        (img) => {
           this.image = img;
           this.$emit("image-loaded", img);
           if (this.parentType == "group") {
@@ -62,7 +62,7 @@ export default {
           this.createEvents();
           this.createWatchers();
         },
-        { ...this.definedProps }
+        { crossOrigin: "anonymous", ...this.definedProps }
       );
     },
     destroyImage() {
@@ -77,7 +77,7 @@ export default {
         }
         this.image = null;
       }
-    }
-  }
+    },
+  },
 };
 </script>
