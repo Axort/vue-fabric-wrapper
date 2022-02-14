@@ -63,7 +63,7 @@ export default {
           this.createWatchers();
         },
         null,
-        { crossOrigin: "anonymous" }
+        { crossOrigin: "anonymous", ...this.definedProps }
       );
       // this.fabric.Image.fromURL(
       //   this.url,
