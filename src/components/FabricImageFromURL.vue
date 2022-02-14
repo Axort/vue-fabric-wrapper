@@ -48,8 +48,8 @@ export default {
       this.fabric.util.loadImage(
         this.url,
         (img) => {
-          this.image = img;
-          this.$emit("image-loaded", img);
+          this.image = new this.fabric.Image(img);
+          this.$emit("image-loaded", this.image);
           if (this.parentType == "group") {
             if (this.parentItem.addWithoutUpdate) {
               this.parentItem.add(this.image);
@@ -63,7 +63,7 @@ export default {
           this.createWatchers();
         },
         null,
-        { crossOrigin: "anonymous", ...this.definedProps }
+        { crossOrigin: "anonymous" }
       );
       // this.fabric.Image.fromURL(
       //   this.url,
