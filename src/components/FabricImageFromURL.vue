@@ -65,46 +65,46 @@ export default {
       //   null,
       //   { ...this.definedProps }
       // );
-      // this.fabric.Image.fromURL(
-      //   this.url,
-      //   (img) => {
-      // this.image = img;
-      // this.$emit("image-loaded", img);
-      // if (this.parentType == "group") {
-      //   if (this.parentItem.addWithoutUpdate) {
-      //     this.parentItem.add(this.image);
-      //   } else {
-      //     this.parentItem.addWithUpdate(this.image);
-      //   }
-      // } else {
-      //   this.canvas.add(this.image);
-      // }
-      // this.createEvents();
-      // this.createWatchers();
-      //   },
-      //   { crossOrigin: "anonymous", ...this.definedProps }
-      // );
-      let img = new Image();
-      this.toDataUrl(this.url, (dataUri) => {
-        img.src = dataUri;
-        let inst = this;
-        img.onload = function () {
-          inst.image = new inst.fabric.Image(img);
-          inst.$emit("image-loaded", inst.image);
-          if (inst.parentType == "group") {
-            if (inst.parentItem.addWithoutUpdate) {
-              inst.parentItem.add(inst.image);
+      this.fabric.Image.fromURL(
+        this.url,
+        (img) => {
+          this.image = img;
+          this.$emit("image-loaded", img);
+          if (this.parentType == "group") {
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.image);
             } else {
-              inst.parentItem.addWithUpdate(inst.image);
+              this.parentItem.addWithUpdate(this.image);
             }
           } else {
-            inst.canvas.add(inst.image);
+            this.canvas.add(this.image);
           }
-          inst.createEvents();
-          inst.createWatchers();
-        };
-        img.crossOrigin = "anonymous";
-      });
+          this.createEvents();
+          this.createWatchers();
+        },
+        { ...this.definedProps, crossOrigin: "anonymous" }
+      );
+      // let img = new Image();
+      // this.toDataUrl(this.url, (dataUri) => {
+      //   img.src = dataUri;
+      //   let inst = this;
+      //   img.onload = function () {
+      //     inst.image = new inst.fabric.Image(img);
+      //     inst.$emit("image-loaded", inst.image);
+      //     if (inst.parentType == "group") {
+      //       if (inst.parentItem.addWithoutUpdate) {
+      //         inst.parentItem.add(inst.image);
+      //       } else {
+      //         inst.parentItem.addWithUpdate(inst.image);
+      //       }
+      //     } else {
+      //       inst.canvas.add(inst.image);
+      //     }
+      //     inst.createEvents();
+      //     inst.createWatchers();
+      //   };
+      //   img.crossOrigin = "anonymous";
+      // });
     },
     destroyImage() {
       this.destroyEvents();
