@@ -39709,27 +39709,27 @@ var FabricGroup_component = normalizeComponent(
     createImage: function createImage() {
       var _this = this;
 
-      // this.fabric.util.loadImage(
-      //   this.url,
-      //   (img) => {
-      //     this.image = img;
-      //     this.$emit("image-loaded", img);
-      //     if (this.parentType == "group") {
-      //       if (this.parentItem.addWithoutUpdate) {
-      //         this.parentItem.add(this.image);
-      //       } else {
-      //         this.parentItem.addWithUpdate(this.image);
-      //       }
-      //     } else {
-      //       this.canvas.add(this.image);
-      //     }
-      //     this.createEvents();
-      //     this.createWatchers();
-      //   },
-      //   null,
-      //   { crossOrigin: "anonymous" }
-      // );
-      // this.fabric.Image.fromURL(
+      this.fabric.util.loadImage(this.url, function (img) {
+        _this.image = img;
+
+        _this.$emit("image-loaded", img);
+
+        if (_this.parentType == "group") {
+          if (_this.parentItem.addWithoutUpdate) {
+            _this.parentItem.add(_this.image);
+          } else {
+            _this.parentItem.addWithUpdate(_this.image);
+          }
+        } else {
+          _this.canvas.add(_this.image);
+        }
+
+        _this.createEvents();
+
+        _this.createWatchers();
+      }, null, {
+        crossOrigin: "anonymous"
+      }); // this.fabric.Image.fromURL(
       //   this.url,
       //   (img) => {
       // this.image = img;
@@ -39748,31 +39748,27 @@ var FabricGroup_component = normalizeComponent(
       //   },
       //   { crossOrigin: "anonymous", ...this.definedProps }
       // );
-      var img = new Image();
-      this.toDataUrl(this.url, function (dataUri) {
-        img.src = dataUri;
-        var inst = _this;
-
-        img.onload = function () {
-          inst.image = new Fabric.Image(img);
-          inst.$emit("image-loaded", inst.image);
-
-          if (inst.parentType == "group") {
-            if (inst.parentItem.addWithoutUpdate) {
-              inst.parentItem.add(inst.image);
-            } else {
-              inst.parentItem.addWithUpdate(inst.image);
-            }
-          } else {
-            inst.canvas.add(inst.image);
-          }
-
-          inst.createEvents();
-          inst.createWatchers();
-        };
-
-        img.crossOrigin = "anonymous";
-      });
+      // let img = new Image();
+      // this.toDataUrl(this.url, (dataUri) => {
+      //   img.src = dataUri;
+      //   let inst = this;
+      //   img.onload = function () {
+      //     inst.image = new Fabric.Image(img);
+      //     inst.$emit("image-loaded", inst.image);
+      //     if (inst.parentType == "group") {
+      //       if (inst.parentItem.addWithoutUpdate) {
+      //         inst.parentItem.add(inst.image);
+      //       } else {
+      //         inst.parentItem.addWithUpdate(inst.image);
+      //       }
+      //     } else {
+      //       inst.canvas.add(inst.image);
+      //     }
+      //     inst.createEvents();
+      //     inst.createWatchers();
+      //   };
+      //   img.crossOrigin = "anonymous";
+      // });
     },
     destroyImage: function destroyImage() {
       this.destroyEvents();
