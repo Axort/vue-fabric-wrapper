@@ -79,7 +79,6 @@ export default {
           } else {
             this.canvas.add(this.image);
           }
-          this.canvas.moveTo(this.image, 0);
           this.createEvents();
           this.createWatchers();
         },

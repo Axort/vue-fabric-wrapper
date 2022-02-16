@@ -39750,8 +39750,6 @@ function FabricImageFromURLvue_type_script_lang_js_defineProperty(obj, key, valu
           _this.canvas.add(_this.image);
         }
 
-        _this.canvas.moveTo(_this.image, 0);
-
         _this.createEvents();
 
         _this.createWatchers();
