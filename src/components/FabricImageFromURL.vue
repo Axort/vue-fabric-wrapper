@@ -70,25 +70,6 @@ export default {
         (img) => {
           this.image = img;
           this.$emit("image-loaded", img);
-
-          let imgWidth = img.width;
-          let imgHeight = img.height;
-          let canvasWidth = canvas.getWidth();
-          let canvasHeight = canvas.getHeight();
-
-          let imgRatio = imgWidth / imgHeight;
-          let canvasRatio = canvasWidth / canvasHeight;
-
-          if (imgRatio <= canvasRatio) {
-            if (imgHeight > canvasHeight) {
-              this.image.scaleToHeight(canvasHeight);
-            }
-          } else {
-            if (imgWidth > canvasWidth) {
-              this.image.scaleToWidth(canvasWidth);
-            }
-          }
-
           if (this.parentType == "group") {
             if (this.parentItem.addWithoutUpdate) {
               this.parentItem.add(this.image);
